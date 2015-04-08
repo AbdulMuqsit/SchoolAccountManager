@@ -1,8 +1,16 @@
 ﻿<Application x:Class="SchoolAccountManager.WPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:infrastructure="clr-namespace:SchoolAccountManager.WPF.Infrastructure"
+             xmlns:viewModel="clr-namespace:SchoolAccountManager.WPF.ViewModel"
+             xmlns:view="clr-namespace:SchoolAccountManager.WPF.View"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+            <view:HomeView />
+        </DataTemplate>
+
+        <infrastructure:ViewModelLocator x:Key="Locator" />
+
     </Application.Resources>
 </Application>
