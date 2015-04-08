@@ -8,10 +8,11 @@ namespace SchoolAccountManager.EF
 {
     public class EfRepository : IRepository
     {
+        readonly SchoolAccountManagerDbContext _context = new SchoolAccountManagerDbContext();
         public EfRepository()
         {
-            Payments = new EfRepository<Payment>();
-            Invoices = new EfRepository<Invoice>();
+            Payments = new EfRepository<Payment>(_context);
+            Invoices = new EfRepository<Invoice>(_context);
         }
 
         public EfRepository<Payment> Payments { get; private set; }
@@ -22,6 +23,10 @@ namespace SchoolAccountManager.EF
     {
         protected SchoolAccountManagerDbContext Context { get; set; }
 
+        public EfRepository(SchoolAccountManagerDbContext context)
+        {
+            Context = context;
+        }
         public void Add(T item)
         {
             Context.Set<T>().Add(item);

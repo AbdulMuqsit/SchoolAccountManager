@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using SchoolAccountManager.Entities;
 using SchoolAccountManager.WPF.Infrastructure;
 
@@ -7,16 +8,23 @@ namespace SchoolAccountManager.WPF.ViewModel
 {
     public class InvoicesViewModel : ViewModelBase
     {
-        private ObservableCollection<Payment> _payments;
-        private Payment _payment;
-
-        public ObservableCollection<Payment> Payments
+        private ObservableCollection<Invoice> _invoices;
+        private Invoice _invoice;
+        public ViewModelBase CurrentChildViewModel { get; set; }
+        public ObservableCollection<Invoice> Invoices
         {
-            get { return _payments; }
+            get
+            {
+                if (Repository.Invoices.GetAll().Count() != _invoices.Count)
+                {
+                    Refresh();
+                }
+                return _invoices;
+            }
             set
             {
-                if (Equals(value, _payments)) return;
-                _payments = value;
+                if (Equals(value, _invoices)) return;
+                _invoices = value;
                 OnPropertyChanged();
             }
         }
@@ -25,23 +33,28 @@ namespace SchoolAccountManager.WPF.ViewModel
         public InvoicesViewModel()
         {
             Refresh();
-            SwitchToAddNewCommand = new RelayCommand(() =>Navigator.SwitchView(this,ViewModelLocator.AddPaymentViewModel));
+            CurrentChildViewModel = ViewModelLocator.InvoiceDetailsViewModel;
+            Invoice = Invoices[0];
+            SwitchToAddNewCommand = new RelayCommand(() => Navigator.SwitchView(this, ViewModelLocator.AddPaymentViewModel));
+            GoHomeCommand = new RelayCommand(() => Navigator.SwitchView(ViewModelLocator.HomeViewModel));
+
         }
 
-        public Payment Payment
+        public Invoice Invoice
         {
-            get { return _payment; }
+            get { return _invoice; }
             set
             {
-                if (Equals(value, _payment)) return;
-                _payment = value;
+                if (Equals(value, _invoice)) return;
+                _invoice = value;
                 OnPropertyChanged();
             }
         }
+        public RelayCommand GoHomeCommand { get; set; }
 
         private void Refresh()
         {
-            Payments = new ObservableCollection<Payment>(Repository.Payments.GetAll());
+            Invoices = new ObservableCollection<Invoice>(Repository.Invoices.GetAll());
         }
     }
 }

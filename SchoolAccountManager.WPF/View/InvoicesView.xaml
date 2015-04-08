@@ -33,9 +33,12 @@
                         Style="{StaticResource CntCtlStyle}"></ContentControl>
         <Button Grid.Row="2"
                 Grid.Column="1"
-                HorizontalAlignment="Right"
                 Style="{StaticResource BtnAddStyle}"
                 Content="Add New" />
-
+        <Button Grid.Row="2"
+                Grid.Column="0"
+                HorizontalAlignment="Left"
+                Style="{StaticResource BtnAddStyle}"
+                Content="Home" />
     </Grid>
 </UserControl>

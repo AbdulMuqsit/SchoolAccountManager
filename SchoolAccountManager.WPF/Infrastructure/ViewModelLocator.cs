@@ -1,4 +1,7 @@
-﻿using SchoolAccountManager.WPF.ViewModel;
+﻿using System;
+using System.ComponentModel;
+using System.Windows;
+using SchoolAccountManager.WPF.ViewModel;
 
 namespace SchoolAccountManager.WPF.Infrastructure
 {
@@ -6,14 +9,17 @@ namespace SchoolAccountManager.WPF.Infrastructure
     {
         public ViewModelLocator()
         {
-            MainViewModel = new MainViewModel();
-            HomeViewModel = new HomeViewModel();
-            PaymentsViewModel = new PaymentsViewModel();
-            InvoiceViewModel = new InvoicesViewModel();
-            AddPaymentViewModel = new AddPaymentViewModel();
-            AddInvoiceViewModel = new AddInvoiceViewModel();
-            InvoiceDetailsViewModel = new InvoiceDetailsViewModel();
-            PaymentDetailsViewModel = new PaymentDetailsViewModel();
+            if (!DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+            {
+                MainViewModel = new MainViewModel();
+                HomeViewModel = new HomeViewModel();
+                PaymentsViewModel = new PaymentsViewModel();
+                InvoiceViewModel = new InvoicesViewModel();
+                AddPaymentViewModel = new AddPaymentViewModel();
+                AddInvoiceViewModel = new AddInvoiceViewModel();
+                InvoiceDetailsViewModel = new InvoiceDetailsViewModel();
+                PaymentDetailsViewModel = new PaymentDetailsViewModel();
+            }
         }
 
         public MainViewModel MainViewModel { get; set; }
