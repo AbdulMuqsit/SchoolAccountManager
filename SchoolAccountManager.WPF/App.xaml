@@ -9,14 +9,11 @@
         <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
             <view:HomeView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
-            <view:HomeView />
+        <DataTemplate DataType="{x:Type viewModel:InvoicesViewModel}">
+            <view:InvoicesView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
-            <view:HomeView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
-            <view:HomeView />
+        <DataTemplate DataType="{x:Type viewModel:PaymentsViewModel}">
+            <view:PaymentsView />
         </DataTemplate>
         <infrastructure:ViewModelLocator x:Key="Locator" />
 

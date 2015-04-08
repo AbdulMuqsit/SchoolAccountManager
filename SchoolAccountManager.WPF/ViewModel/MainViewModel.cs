@@ -8,17 +8,13 @@ namespace SchoolAccountManager.WPF.ViewModel
         {
             get
             {
-                if (ViewModelLocator== null)
+                if (ViewModelLocator == null)
                 {
                     return new HomeViewModel();
                 }
                 return ViewModelLocator.HomeViewModel;
             }
-            set
-            {
-            }
+            set { }
         }
-
-
     }
 }
