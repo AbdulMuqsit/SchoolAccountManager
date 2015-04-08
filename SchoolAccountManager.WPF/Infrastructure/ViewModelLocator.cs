@@ -14,24 +14,4 @@ namespace SchoolAccountManager.WPF.Infrastructure
             HomeViewModel = new HomeViewModel();
         }
     }
-
-    public class MainViewModel : ViewModelBase
-    {
-        public ViewModelBase CurrentChildViewModel
-        {
-            get
-            {
-                if (ViewModelLocator== null)
-                {
-                    return new HomeViewModel();
-                }
-                return ViewModelLocator.HomeViewModel;
-            }
-            set
-            {
-            }
-        }
-
-
-    }
 }

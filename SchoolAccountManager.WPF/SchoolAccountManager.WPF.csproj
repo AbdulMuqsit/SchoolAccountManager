@@ -65,12 +65,9 @@
     <Compile Include="Infrastructure\ViewModelBase.cs" />
     <Compile Include="Infrastructure\ViewModelLocator.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
-    <Compile Include="ViewModel\InvoicesViewModel.xaml.cs">
-      <DependentUpon>InvoicesViewModel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\PaymentsViewModel.xaml.cs">
-      <DependentUpon>PaymentsViewModel.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModel\InvoicesViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\PaymentsViewModel.cs" />
     <Compile Include="View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
@@ -92,14 +89,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ViewModel\InvoicesViewModel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ViewModel\PaymentsViewModel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -9,7 +9,15 @@
         <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
             <view:HomeView />
         </DataTemplate>
-
+        <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+            <view:HomeView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+            <view:HomeView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+            <view:HomeView />
+        </DataTemplate>
         <infrastructure:ViewModelLocator x:Key="Locator" />
 
     </Application.Resources>
