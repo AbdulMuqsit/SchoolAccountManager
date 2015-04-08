@@ -6,7 +6,7 @@ using SchoolAccountManager.Entities;
 
 namespace SchoolAccountManager.EF
 {
-    public class EfRepository
+    public class EfRepository : IRepository
     {
         public EfRepository()
         {

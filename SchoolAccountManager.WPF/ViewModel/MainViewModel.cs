@@ -4,17 +4,22 @@ namespace SchoolAccountManager.WPF.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
+        private ViewModelBase _currentChildViewModel;
+
         public ViewModelBase CurrentChildViewModel
         {
-            get
+            get { return _currentChildViewModel; }
+            set
             {
-                if (ViewModelLocator == null)
-                {
-                    return new HomeViewModel();
-                }
-                return ViewModelLocator.HomeViewModel;
+                if (Equals(value, _currentChildViewModel)) return;
+                _currentChildViewModel = value;
+                OnPropertyChanged();
             }
-            set { }
+        }
+
+        public MainViewModel()
+        {
+            CurrentChildViewModel = ViewModelLocator!=null ? ViewModelLocator.HomeViewModel : new HomeViewModel();
         }
     }
 }

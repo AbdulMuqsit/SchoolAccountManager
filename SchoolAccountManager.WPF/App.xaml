@@ -6,16 +6,23 @@
              xmlns:view="clr-namespace:SchoolAccountManager.WPF.View"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
-            <view:HomeView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:InvoicesViewModel}">
-            <view:InvoicesView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:PaymentsViewModel}">
-            <view:PaymentsView />
-        </DataTemplate>
-        <infrastructure:ViewModelLocator x:Key="Locator" />
+
+        <ResourceDictionary>
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:InvoicesViewModel}">
+                <view:InvoicesView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:PaymentsViewModel}">
+                <view:PaymentsView />
+            </DataTemplate>
+            <infrastructure:ViewModelLocator x:Key="Locator" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles.xaml"></ResourceDictionary>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
 
     </Application.Resources>
 </Application>

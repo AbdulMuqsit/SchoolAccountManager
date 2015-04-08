@@ -4,6 +4,38 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid />
+             d:DesignHeight="641"
+             d:DesignWidth="557">
+    <Grid DataContext="{Binding Source={StaticResource Locator},Path=InvoiceViewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="4*" />
+        </Grid.ColumnDefinitions>
+        <Label Style="{StaticResource LblTitleStyle }">Invoices</Label>
+        <StackPanel HorizontalAlignment="Right"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+            <Label Style="{StaticResource LblSearchStyle}">Search</Label>
+            <TextBox HorizontalAlignment="Right"
+                     Style="{StaticResource TxtBoxSearchStyle}"></TextBox>
+        </StackPanel>
+        <ListBox Grid.Column="0"
+                 Grid.Row="1"
+                 Style="{StaticResource LstBoxStyle}" />
+        <ContentControl Grid.Row="1"
+                        Grid.Column="1"
+                        Style="{StaticResource CntCtlStyle}"></ContentControl>
+        <Button Grid.Row="2"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                Style="{StaticResource BtnAddStyle}"
+                Content="Add New" />
+
+    </Grid>
 </UserControl>

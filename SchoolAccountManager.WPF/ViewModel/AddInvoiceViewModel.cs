@@ -2,7 +2,7 @@
 
 namespace SchoolAccountManager.WPF.ViewModel
 {
-    public class PaymentsViewModel:ViewModelBase
+    public class AddInvoiceViewModel:ViewModelBase
     {
     }
 }

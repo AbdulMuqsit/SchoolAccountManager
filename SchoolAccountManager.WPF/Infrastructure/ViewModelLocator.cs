@@ -8,9 +8,21 @@ namespace SchoolAccountManager.WPF.Infrastructure
         {
             MainViewModel = new MainViewModel();
             HomeViewModel = new HomeViewModel();
+            PaymentsViewModel = new PaymentsViewModel();
+            InvoiceViewModel = new InvoicesViewModel();
+            AddPaymentViewModel = new AddPaymentViewModel();
+            AddInvoiceViewModel = new AddInvoiceViewModel();
+            InvoiceDetailsViewModel = new InvoiceDetailsViewModel();
+            PaymentDetailsViewModel = new PaymentDetailsViewModel();
         }
 
         public MainViewModel MainViewModel { get; set; }
         public HomeViewModel HomeViewModel { get; set; }
+        public PaymentsViewModel PaymentsViewModel { get; set; }
+        public InvoicesViewModel InvoiceViewModel { get; set; }
+        public AddPaymentViewModel AddPaymentViewModel { get; set; }
+        public AddInvoiceViewModel AddInvoiceViewModel { get; set; }
+        public InvoiceDetailsViewModel InvoiceDetailsViewModel { get; set; }
+        public PaymentDetailsViewModel PaymentDetailsViewModel { get; set; }
     }
 }
