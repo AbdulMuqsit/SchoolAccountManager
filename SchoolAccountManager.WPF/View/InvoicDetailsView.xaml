@@ -8,7 +8,7 @@
              d:DesignWidth="300">
     <Border BorderBrush="LightGray"
             BorderThickness="1">
-        <Grid>
+        <Grid d:DataContext="{d:DesignData Source=../SampleData/InvoiceDetailsViewModelSampleData.xaml}">
             <Grid.Resources>
                 <Style TargetType="Label"
                        x:Key="LblLabelStyle">
@@ -29,7 +29,16 @@
                             Value="14" />
 
                 </Style>
+                <Style TargetType="TextBlock"
+                       x:Key="TxtBlkStyle">
+                    <Setter Property="Margin"
+                            Value="10,5,5,0"></Setter>
+                    <Setter Property="FontSize"
+                            Value="14" />
+                    <Setter Property="VerticalAlignment"
+                            Value="Center"></Setter>
 
+                </Style>
             </Grid.Resources>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -42,6 +51,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
 
             </Grid.RowDefinitions>
 
@@ -75,14 +85,22 @@
                     Grid.Row="2"
                     Grid.Column="1"
                     Content="{Binding Invoice.Quantity}"></Label>
-            <Label Style="{StaticResource TxtBoxInputStyle}"
-                   Grid.Row="3"
-                   Grid.Column="1"
-                   Content="{Binding Invoice.DateTime, StringFormat=\{0:d\}}"></Label>
-            <Label  Style="{StaticResource TxtBoxInputStyle}"
-                    Grid.Row="4"
-                    Grid.Column="1"
-                    Content="{Binding Invoice.Amount}"></Label>
+            <TextBlock Style="{StaticResource TxtBlkStyle}"
+                       Grid.Row="3"
+                       Grid.Column="1"
+                       Text="{Binding Invoice.DateTime, StringFormat=\{0:D\}}"></TextBlock>
+            <TextBlock  Style="{StaticResource TxtBlkStyle}"
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Text="{Binding Invoice.Amount, StringFormat=\{0:C\}}"></TextBlock>
+            <Button Grid.Row="5"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Left"
+                    Margin="5"
+                    Grid.Column="0"
+                    MinWidth="70"
+                    MinHeight="30"
+                    Command="{Binding Source={StaticResource Locator}, Path=InvoiceDetailsViewModel.PrintCommand}">Print</Button>
         </Grid>
 
     </Border>

@@ -1,5 +1,7 @@
-﻿using SchoolAccountManager.Entities;
+﻿using System.Windows.Controls;
+using SchoolAccountManager.Entities;
 using SchoolAccountManager.WPF.Infrastructure;
+using SchoolAccountManager.WPF.View;
 
 namespace SchoolAccountManager.WPF.ViewModel
 {
@@ -18,9 +20,20 @@ namespace SchoolAccountManager.WPF.ViewModel
             }
         }
 
+        public RelayCommand PrintCommand { get; set; }
         public InvoiceDetailsViewModel()
         {
             Invoice = new Invoice();
+            PrintCommand = new RelayCommand(Print);
+        }
+
+        private void Print()
+        {
+            var printDialog = new PrintDialog();
+            if (printDialog.ShowDialog() == true)
+            {
+                printDialog.PrintVisual(new PrintInvoiceView(), "Invoice");
+            }
         }
     }
 }

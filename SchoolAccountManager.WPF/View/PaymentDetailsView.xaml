@@ -8,7 +8,7 @@
              d:DesignWidth="300">
     <Border BorderBrush="LightGray"
             BorderThickness="1">
-        <Grid>
+        <Grid d:DataContext="{d:DesignData Source=../SampleData/PaymentDetailsViewModelSampleData.xaml}">
             <Grid.Resources>
                 <Style TargetType="Label"
                        x:Key="LblLabelStyle">
@@ -29,20 +29,28 @@
                             Value="14" />
 
                 </Style>
+                <Style TargetType="TextBlock"
+                       x:Key="TxtBlkStyle">
+                    <Setter Property="Margin"
+                            Value="10,5,5,0"></Setter>
+                    <Setter Property="FontSize"
+                            Value="14" />
+                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
 
+                </Style>
             </Grid.Resources>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Label Style="{StaticResource LblLabelStyle}"
@@ -71,18 +79,18 @@
                     Grid.Row="0"
                     Grid.Column="1"
                     Content="{Binding Payment.StudentName}" />
-            <Label  Style="{StaticResource TxtBoxInputStyle}"
+            <TextBlock  Style="{StaticResource TxtBlkStyle}"
                     Grid.Row="1"
                     Grid.Column="1"
-                    Content="{Binding Payment.Amount}"></Label>
-            <Label  Style="{StaticResource TxtBoxInputStyle}"
+                    Text="{Binding Payment.Amount, StringFormat=\{0:C\}}"></TextBlock>
+            <TextBlock  Style="{StaticResource TxtBlkStyle}"
                     Grid.Row="2"
                     Grid.Column="1"
-                    Content="{Binding Payment.BankName}"></Label>
-            <Label Style="{StaticResource TxtBoxInputStyle}"
+                    Text="{Binding Payment.BankName}"></TextBlock>
+            <TextBlock Style="{StaticResource TxtBlkStyle}"
                    Grid.Row="3"
                    Grid.Column="1"
-                   Content="{Binding Payment.DateTime, StringFormat=\{0:d\}}"></Label>
+                   Text="{Binding Payment.DateTime, StringFormat=\{0:D\}}"></TextBlock>
             <Label  Style="{StaticResource TxtBoxInputStyle}"
                     Grid.Row="4"
                     Grid.Column="1"
@@ -91,6 +99,15 @@
                     Grid.Row="5"
                     Grid.Column="1"
                     Content="{Binding Payment.Class}"></Label>
+            <Button Grid.Row="6"
+                    Grid.Column="0"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Left"
+                    Margin="5"
+                    MinWidth="70"
+                    MinHeight="30"
+                    Command="{Binding Source={StaticResource Locator}, Path=PaymentDetailsViewModel.PrintCommand}">Print</Button>
+
         </Grid>
 
     </Border>
