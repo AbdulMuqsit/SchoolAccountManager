@@ -2,20 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security;
 using SchoolAccountManager.Entities;
 
 namespace SchoolAccountManager.EF
 {
     public class EfRepository : IRepository
     {
+        public SchoolAccountManagerDbContext Context
+        {
+            get;
+            set;
+        }
         public EfRepository()
         {
-            var context = new SchoolAccountManagerDbContext();
-            Payments = new EfRepository<Payment>(context);
-            Invoices = new EfRepository<Invoice>(context);
-            if (!context.Payments.Any())
+            Context = new SchoolAccountManagerDbContext();
+
+            Payments = new EfRepository<Payment>(Context);
+            Invoices = new EfRepository<Invoice>(Context);
+            if (!Context.Payments.Any())
             {
-                context.Payments.AddRange(new List<Payment>
+                Context.Payments.AddRange(new List<Payment>
                 {
                     new Payment
                     {
@@ -54,11 +61,11 @@ namespace SchoolAccountManager.EF
                         Class = "5A"
                     }
                 });
-                context.SaveChanges();
+                Context.SaveChanges();
             }
-            if (!context.Invoices.Any())
+            if (!Context.Invoices.Any())
             {
-                context.Invoices.AddRange(new List<Invoice>
+                Context.Invoices.AddRange(new List<Invoice>
                     {
                         new Invoice
                         {
@@ -93,7 +100,7 @@ namespace SchoolAccountManager.EF
                             Quantity = 223
                         }
                     });
-                context.SaveChanges();
+                Context.SaveChanges();
             }
         }
 

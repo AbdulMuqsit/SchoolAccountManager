@@ -81,7 +81,7 @@ namespace SchoolAccountManager.WPF.ViewModel
             Payments = string.IsNullOrWhiteSpace(SearchText)
                             ? new ObservableCollection<Payment>(Repository.Payments.GetAll())
                             : new ObservableCollection<Payment>(
-                                Repository.Payments.Where(e => e.StudentName.ToLower().Contains(SearchText.ToLower())));
+                                Repository.Context.Payments.Local.Where(e => e.StudentName.ToLower().Contains(SearchText.ToLower())));
         }
 
         private void Refresh()

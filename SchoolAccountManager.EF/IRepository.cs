@@ -6,5 +6,6 @@ namespace SchoolAccountManager.EF
     {
         EfRepository<Payment> Payments { get; }
         EfRepository<Invoice> Invoices { get; }
+        SchoolAccountManagerDbContext Context { get; }
     }
 }
