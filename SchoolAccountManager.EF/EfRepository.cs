@@ -8,11 +8,93 @@ namespace SchoolAccountManager.EF
 {
     public class EfRepository : IRepository
     {
-        readonly SchoolAccountManagerDbContext _context = new SchoolAccountManagerDbContext();
         public EfRepository()
         {
-            Payments = new EfRepository<Payment>(_context);
-            Invoices = new EfRepository<Invoice>(_context);
+            var context = new SchoolAccountManagerDbContext();
+            Payments = new EfRepository<Payment>(context);
+            Invoices = new EfRepository<Invoice>(context);
+            if (!context.Payments.Any())
+            {
+                context.Payments.AddRange(new List<Payment>
+                {
+                    new Payment
+                    {
+                        StudentName = "Brian Furk",
+                        BankName = "National Bank of Utopia",
+                        DateTime = DateTime.Now,
+                        Description = "Wow Wow",
+                        Amount = 3000000,
+                        Class = "A"
+                    },
+                    new Payment
+                    {
+                        StudentName = "Adam Franco",
+                        BankName = "Abc Bank Ltd",
+                        DateTime = DateTime.Now,
+                        Description = "Very much thanks",
+                        Amount = 483,
+                        Class = "3C"
+                    },
+                    new Payment
+                    {
+                        StudentName = "Larry White",
+                        BankName = "Good Bank Ltd",
+                        DateTime = DateTime.Now,
+                        Description = " Good Deed",
+                        Amount = 123,
+                        Class = "3B"
+                    },
+                    new Payment
+                    {
+                        StudentName = "Nich Potter",
+                        BankName = "Some Bank Ltd",
+                        DateTime = DateTime.Now,
+                        Description = "Good Thanks much",
+                        Amount = 231,
+                        Class = "5A"
+                    }
+                });
+                context.SaveChanges();
+            }
+            if (!context.Invoices.Any())
+            {
+                context.Invoices.AddRange(new List<Invoice>
+                    {
+                        new Invoice
+                        {
+                            Name = "Kurt Renoyld",
+                            DateTime = DateTime.Now,
+                            Item = "Wow Wow",
+                            Amount = 3000000,
+                            Quantity = 23
+                        },
+                        new Invoice
+                        {
+                            Name = "Alfred James",
+                            DateTime = DateTime.Now,
+                            Item = "something",
+                            Amount = 483,
+                            Quantity = 235
+                        },
+                        new Invoice
+                        {
+                            Name = "Harry Kobian",
+                            DateTime = DateTime.Now,
+                            Item = "Stationary",
+                            Amount = 123,
+                            Quantity = 233
+                        },
+                        new Invoice
+                        {
+                            Name = "Alfred James",
+                            DateTime = DateTime.Now,
+                            Item = "Well",
+                            Amount = 231,
+                            Quantity = 223
+                        }
+                    });
+                context.SaveChanges();
+            }
         }
 
         public EfRepository<Payment> Payments { get; private set; }
@@ -21,12 +103,13 @@ namespace SchoolAccountManager.EF
 
     public class EfRepository<T> where T : class
     {
-        protected SchoolAccountManagerDbContext Context { get; set; }
-
         public EfRepository(SchoolAccountManagerDbContext context)
         {
             Context = context;
         }
+
+        protected SchoolAccountManagerDbContext Context { get; set; }
+
         public void Add(T item)
         {
             Context.Set<T>().Add(item);

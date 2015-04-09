@@ -7,6 +7,31 @@
              d:DesignHeight="299"
              d:DesignWidth="699">
     <Grid DataContext="{Binding Source={StaticResource Locator},Path=PaymentsViewModel}">
+        <Grid.Resources>
+            <DataTemplate x:Key="ItmLstBoxTemplate">
+                <Grid Background="#EEEEEE">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="{Binding StudentName}"
+                               Margin="5"
+                               FontSize="15" />
+
+                        <TextBlock Grid.Row="1" Text="{Binding DateTime, StringFormat=\{0:d\}}"
+                                   Margin="5"
+                                   FontSize="12" />
+                        <TextBlock  Grid.Row="1" Text="{Binding Amount, StringFormat=\{0:c\}}"
+                                   Margin="5"
+                                   HorizontalAlignment="Right"
+                                   FontSize="12" />
+
+                </Grid>
+            </DataTemplate>
+
+
+
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />
@@ -23,23 +48,33 @@
                     Orientation="Horizontal">
             <Label Style="{StaticResource LblSearchStyle}">Search</Label>
             <TextBox HorizontalAlignment="Right"
-                     Style="{StaticResource TxtBoxSearchStyle}"></TextBox>
+                     Style="{StaticResource TxtBoxSearchStyle}"
+                     Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}"></TextBox>
         </StackPanel>
-        <ListBox Grid.Column="0"
+        <ListBox ItemTemplate="{StaticResource ItmLstBoxTemplate}"
+                 Grid.Column="0"
                  Grid.Row="1"
-                 Style="{StaticResource LstBoxStyle}" />
+                 IsSynchronizedWithCurrentItem="True"
+                 ItemsSource="{Binding Payments}"
+                 Style="{StaticResource LstBoxStyle}"
+                 ItemContainerStyle="{StaticResource LstBoxItemStyle}"
+                 SelectedItem="{Binding Source={StaticResource Locator}, Path=PaymentDetailsViewModel.Payment}" />
+
         <ContentControl Grid.Row="1"
                         Grid.Column="1"
+                        Content="{Binding CurrentChildViewModel}"
                         Style="{StaticResource CntCtlStyle}"></ContentControl>
         <Button Grid.Row="2"
                 Grid.Column="1"
                 Style="{StaticResource BtnAddStyle}"
-                Content="Add New" />
+                Content="Add New"
+                Command="{Binding SwitchToAddNewCommand}" />
         <Button Grid.Row="2"
                 Grid.Column="0"
                 HorizontalAlignment="Left"
                 Style="{StaticResource BtnAddStyle}"
-                Content="Home" />
+                Content="Home"
+                Command="{Binding GoHomeCommand}" />
     </Grid>
 
 </UserControl>

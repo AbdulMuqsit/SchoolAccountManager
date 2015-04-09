@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using SchoolAccountManager.Entities;
@@ -10,12 +11,13 @@ namespace SchoolAccountManager.WPF.ViewModel
     {
         private ObservableCollection<Invoice> _invoices;
         private Invoice _invoice;
-        public ViewModelBase CurrentChildViewModel { get; set; }
+        private string _searchText;
+        public ViewModelBase CurrentChildViewModel { get { return ViewModelLocator.InvoiceDetailsViewModel; } set { } }
         public ObservableCollection<Invoice> Invoices
         {
             get
             {
-                if (Repository.Invoices.GetAll().Count() != _invoices.Count)
+                if (String.IsNullOrWhiteSpace(SearchText) && Repository.Invoices.GetAll().Count() != _invoices.Count)
                 {
                     Refresh();
                 }
@@ -33,9 +35,12 @@ namespace SchoolAccountManager.WPF.ViewModel
         public InvoicesViewModel()
         {
             Refresh();
-            CurrentChildViewModel = ViewModelLocator.InvoiceDetailsViewModel;
-            Invoice = Invoices[0];
-            SwitchToAddNewCommand = new RelayCommand(() => Navigator.SwitchView(this, ViewModelLocator.AddPaymentViewModel));
+            if (Invoices.Any())
+            {
+                Invoice = Invoices[0];
+
+            }
+            SwitchToAddNewCommand = new RelayCommand(() => Navigator.SwitchView(ViewModelLocator.AddInvoiceViewModel));
             GoHomeCommand = new RelayCommand(() => Navigator.SwitchView(ViewModelLocator.HomeViewModel));
 
         }
@@ -55,6 +60,25 @@ namespace SchoolAccountManager.WPF.ViewModel
         private void Refresh()
         {
             Invoices = new ObservableCollection<Invoice>(Repository.Invoices.GetAll());
+        }
+
+        public string SearchText
+        {
+            get { return _searchText; }
+            set
+            {
+                if (value == _searchText) return;
+
+                _searchText = value;
+                OnPropertyChanged();
+                Search();
+
+            }
+        }
+
+        private void Search()
+        {
+            Invoices = string.IsNullOrWhiteSpace(SearchText) ? new ObservableCollection<Invoice>(Repository.Invoices.GetAll()) : new ObservableCollection<Invoice>(Repository.Invoices.Where(e => e.Name.ToLower().Contains(SearchText.ToLower())));
         }
     }
 }

@@ -6,10 +6,92 @@
              mc:Ignorable="d"
              d:DesignHeight="300"
              d:DesignWidth="300">
-    <Border BorderBrush="Black"
+    <Border BorderBrush="LightGray"
             BorderThickness="1">
         <Grid>
+            <Grid.Resources>
+                <Style TargetType="Label"
+                       x:Key="LblLabelStyle">
+                    <Setter Property="Margin"
+                            Value="5,5,5,0">
 
+                    </Setter>
+                    <Setter Property="FontSize"
+                            Value="14" />
+                    <Setter Property="FontWeight"
+                            Value="Bold"></Setter>
+                </Style>
+                <Style TargetType="Label"
+                       x:Key="TxtBoxInputStyle">
+                    <Setter Property="Margin"
+                            Value="5,5,5,0"></Setter>
+                    <Setter Property="FontSize"
+                            Value="14" />
+
+                </Style>
+
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Style="{StaticResource LblLabelStyle}"
+                   Content="Name" />
+            <Label Style="{StaticResource LblLabelStyle}"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Content="Amount" />
+            <Label Style="{StaticResource LblLabelStyle}"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   Content="Bank Name" />
+            <Label Style="{StaticResource LblLabelStyle}"
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   Content="Date" />
+            <Label Style="{StaticResource LblLabelStyle}"
+                   Grid.Row="4"
+                   Grid.Column="0"
+                   Content="Description" />
+            <Label Style="{StaticResource LblLabelStyle}"
+                   Grid.Row="5"
+                   Grid.Column="0"
+                   Content="Class" />
+            <Label  Style="{StaticResource TxtBoxInputStyle}"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Content="{Binding Payment.StudentName}" />
+            <Label  Style="{StaticResource TxtBoxInputStyle}"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Content="{Binding Payment.Amount}"></Label>
+            <Label  Style="{StaticResource TxtBoxInputStyle}"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Content="{Binding Payment.BankName}"></Label>
+            <Label Style="{StaticResource TxtBoxInputStyle}"
+                   Grid.Row="3"
+                   Grid.Column="1"
+                   Content="{Binding Payment.DateTime, StringFormat=\{0:d\}}"></Label>
+            <Label  Style="{StaticResource TxtBoxInputStyle}"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Content="{Binding Payment.Description}"></Label>
+            <Label  Style="{StaticResource TxtBoxInputStyle}"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Content="{Binding Payment.Class}"></Label>
         </Grid>
+
     </Border>
 </UserControl>

@@ -6,7 +6,7 @@ namespace SchoolAccountManager.EF
     public class SchoolAccountManagerDbContext : DbContext
     {
         public SchoolAccountManagerDbContext()
-            : base("SchoolAccountManagerDbC")
+            : base("SchoolAccountManagerDatabase")
         {
         }
 

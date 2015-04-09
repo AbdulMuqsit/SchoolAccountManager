@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using SchoolAccountManager.EF;
@@ -14,6 +15,13 @@ namespace SchoolAccountManager.WPF.Infrastructure
 
         public ViewModelBase()
         {
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\AccountManager\\Database";
+
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+            if (!System.IO.Directory.Exists(path))
+            {
+                System.IO.Directory.CreateDirectory(path);
+            }
             Repository = new EfRepository();
         }
         public static ViewModelLocator ViewModelLocator

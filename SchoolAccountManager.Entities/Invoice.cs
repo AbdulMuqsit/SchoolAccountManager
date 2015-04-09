@@ -10,9 +10,9 @@ namespace SchoolAccountManager.Entities
         private int _id;
         private string _name;
         private string _item;
-        private int _quantity;
-        private DateTime _dateTime;
-        private int _amount;
+        private int? _quantity;
+        private DateTime? _dateTime;
+        private double? _amount;
 
         public int Id
         {
@@ -47,7 +47,7 @@ namespace SchoolAccountManager.Entities
             }
         }
 
-        public int Quantity
+        public int? Quantity
         {
             get { return _quantity; }
             set
@@ -58,7 +58,7 @@ namespace SchoolAccountManager.Entities
             }
         }
 
-        public DateTime DateTime
+        public DateTime? DateTime
         {
             get { return _dateTime; }
             set
@@ -69,7 +69,7 @@ namespace SchoolAccountManager.Entities
             }
         }
 
-        public int Amount
+        public double? Amount
         {
             get { return _amount; }
             set

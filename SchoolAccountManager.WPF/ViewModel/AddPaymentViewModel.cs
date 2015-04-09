@@ -1,11 +1,24 @@
-﻿using SchoolAccountManager.Entities;
+﻿using System;
+using SchoolAccountManager.Entities;
 using SchoolAccountManager.WPF.Infrastructure;
 
 namespace SchoolAccountManager.WPF.ViewModel
 {
     public class AddPaymentViewModel : ViewModelBase
     {
-        public Payment Payment { get; set; }
+        private Payment _payment;
+
+        public Payment Payment
+        {
+            get { return _payment; }
+            set
+            {
+                if (Equals(value, _payment)) return;
+                _payment = value;
+                OnPropertyChanged();
+            }
+        }
+
         public RelayCommand SaveCommand { get; set; }
         public RelayCommand CancelCommand { get; set; }
 
@@ -13,8 +26,13 @@ namespace SchoolAccountManager.WPF.ViewModel
         public RelayCommand GoHomeCommand { get; set; }
         public AddPaymentViewModel()
         {
-            SaveCommand = new RelayCommand(() => Repository.Payments.Add(Payment));
-            CancelCommand = new RelayCommand(() => Navigator.SwitchView(ViewModelLocator.InvoiceViewModel));
+            Payment = new Payment();
+            SaveCommand = new RelayCommand(() =>
+            {
+                Repository.Payments.Add(Payment);
+                Payment = new Payment();
+            });
+            CancelCommand = new RelayCommand(() => Navigator.SwitchView(ViewModelLocator.PaymentsViewModel));
             GoHomeCommand = new RelayCommand(() => Navigator.SwitchView(ViewModelLocator.HomeViewModel));
         }
     }
