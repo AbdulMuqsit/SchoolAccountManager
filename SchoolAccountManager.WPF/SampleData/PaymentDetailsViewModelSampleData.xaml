@@ -1,0 +1,5 @@
+﻿<ViewModel:PaymentDetailsViewModel xmlns:ViewModel="clr-namespace:SchoolAccountManager.WPF.ViewModel" xmlns:Entities="clr-namespace:SchoolAccountManager.Entities;assembly=SchoolAccountManager.Entities" xmlns:Infrastructure="clr-namespace:SchoolAccountManager.WPF.Infrastructure">
+	<ViewModel:PaymentDetailsViewModel.Payment>
+		<Entities:Payment BankName="Class nam curae donec duis" Amount="33" DateTime="9/9/2009" Class="Adipiscing" Description="Mauris etiam maecenas" Id="63" StudentName="Vestibulum"/>
+	</ViewModel:PaymentDetailsViewModel.Payment>
+</ViewModel:PaymentDetailsViewModel>

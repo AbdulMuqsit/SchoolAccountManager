@@ -1,0 +1,7 @@
+﻿<ViewModel:InvoiceDetailsViewModel xmlns:ViewModel="clr-namespace:SchoolAccountManager.WPF.ViewModel" xmlns:Entities="clr-namespace:SchoolAccountManager.Entities;assembly=SchoolAccountManager.Entities" xmlns:Infrastructure="clr-namespace:SchoolAccountManager.WPF.Infrastructure">
+	<ViewModel:InvoiceDetailsViewModel.Invoice>
+        <Entities:Invoice Id="47"
+                          Quantity="33"
+                          Item="Nam aliquais est hac" Name="Aaberg, Jesper" Amount="399" DateTime="9/9/2013"/>
+	</ViewModel:InvoiceDetailsViewModel.Invoice>
+</ViewModel:InvoiceDetailsViewModel>
