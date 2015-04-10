@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System.Diagnostics;
+using System.Windows.Controls;
+using System.Windows.Navigation;
 
 namespace SchoolAccountManager.WPF.View
 {
@@ -10,6 +12,11 @@ namespace SchoolAccountManager.WPF.View
         public HomeView()
         {
             InitializeComponent();
+        }
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }
