@@ -79,6 +79,7 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\AddInvoiceViewModel.cs" />
     <Compile Include="ViewModel\AddPaymentViewModel.cs" />
+    <Compile Include="ViewModel\BalanceStatementViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\InvoiceDetailsViewModel.cs" />
     <Compile Include="ViewModel\InvoicesViewModel.cs" />
@@ -90,6 +91,9 @@
     </Compile>
     <Compile Include="View\AddPaymentView.xaml.cs">
       <DependentUpon>AddPaymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BalanceStatmentView.xaml.cs">
+      <DependentUpon>BalanceStatmentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
@@ -133,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddPaymentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BalanceStatmentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -209,6 +217,7 @@
     <Resource Include="View\logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <DesignData Include="SampleData\BalanceStatementViewModelSampleData.xaml" />
     <DesignData Include="SampleData\InvoiceDetailsViewModelSampleData.xaml" />
     <DesignData Include="SampleData\PaymentDetailsViewModelSampleData.xaml" />
   </ItemGroup>

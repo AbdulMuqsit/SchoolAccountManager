@@ -30,7 +30,7 @@ namespace SchoolAccountManager.EF
                         BankName = "National Bank of Utopia",
                         DateTime = DateTime.Now,
                         Description = "Wow Wow",
-                        Amount = 3000000,
+                        Amount = 30,
                         Class = "A"
                     },
                     new Payment
@@ -39,7 +39,7 @@ namespace SchoolAccountManager.EF
                         BankName = "Abc Bank Ltd",
                         DateTime = DateTime.Now,
                         Description = "Very much thanks",
-                        Amount = 483,
+                        Amount = 40,
                         Class = "3C"
                     },
                     new Payment
@@ -48,7 +48,7 @@ namespace SchoolAccountManager.EF
                         BankName = "Good Bank Ltd",
                         DateTime = DateTime.Now,
                         Description = " Good Deed",
-                        Amount = 123,
+                        Amount = 10,
                         Class = "3B"
                     },
                     new Payment
@@ -57,7 +57,7 @@ namespace SchoolAccountManager.EF
                         BankName = "Some Bank Ltd",
                         DateTime = DateTime.Now,
                         Description = "Good Thanks much",
-                        Amount = 231,
+                        Amount = 20,
                         Class = "5A"
                     }
                 });
@@ -72,7 +72,7 @@ namespace SchoolAccountManager.EF
                             Name = "Kurt Renoyld",
                             DateTime = DateTime.Now,
                             Item = "Wow Wow",
-                            Amount = 3000000,
+                            Amount = 50,
                             Quantity = 23
                         },
                         new Invoice
@@ -80,7 +80,7 @@ namespace SchoolAccountManager.EF
                             Name = "Alfred James",
                             DateTime = DateTime.Now,
                             Item = "something",
-                            Amount = 483,
+                            Amount = 40,
                             Quantity = 235
                         },
                         new Invoice
@@ -88,7 +88,7 @@ namespace SchoolAccountManager.EF
                             Name = "Harry Kobian",
                             DateTime = DateTime.Now,
                             Item = "Stationary",
-                            Amount = 123,
+                            Amount = 20,
                             Quantity = 233
                         },
                         new Invoice
@@ -96,7 +96,7 @@ namespace SchoolAccountManager.EF
                             Name = "Alfred James",
                             DateTime = DateTime.Now,
                             Item = "Well",
-                            Amount = 231,
+                            Amount = 40,
                             Quantity = 223
                         }
                     });

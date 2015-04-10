@@ -6,11 +6,13 @@ namespace SchoolAccountManager.WPF.ViewModel
     {
         public RelayCommand PaymentButtonCommand { get; private set; }
         public RelayCommand InvoiceButtonCommand { get; private set; }
+        public RelayCommand BalanceButtonCommand { get; private set; }
 
         public HomeViewModel()
         {
-            PaymentButtonCommand = new RelayCommand(()=> Navigator.SwitchView(ViewModelLocator.PaymentsViewModel));
+            PaymentButtonCommand = new RelayCommand(() => Navigator.SwitchView(ViewModelLocator.PaymentsViewModel));
             InvoiceButtonCommand = new RelayCommand(() => Navigator.SwitchView(ViewModelLocator.InvoiceViewModel));
+            BalanceButtonCommand = new RelayCommand(() => Navigator.SwitchView((ViewModelLocator.BalanceStatementViewModel)));
 
         }
     }

@@ -1,0 +1,5 @@
+﻿<ViewModel:BalanceStatementViewModel EndDate="2/3/3022" TotalExpendature="3434" TotalIncome="3243" TotalProfit="324" StartDate="9/2/2010" xmlns:ViewModel="clr-namespace:SchoolAccountManager.WPF.ViewModel" xmlns:Infrastructure="clr-namespace:SchoolAccountManager.WPF.Infrastructure" xmlns:Entities="clr-namespace:SchoolAccountManager.Entities;assembly=SchoolAccountManager.Entities">
+
+
+
+</ViewModel:BalanceStatementViewModel>

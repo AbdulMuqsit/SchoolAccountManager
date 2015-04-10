@@ -19,6 +19,7 @@ namespace SchoolAccountManager.WPF.Infrastructure
                 AddInvoiceViewModel = new AddInvoiceViewModel();
                 InvoiceDetailsViewModel = new InvoiceDetailsViewModel();
                 PaymentDetailsViewModel = new PaymentDetailsViewModel();
+                BalanceStatementViewModel = new BalanceStatementViewModel();
             }
         }
 
@@ -30,5 +31,6 @@ namespace SchoolAccountManager.WPF.Infrastructure
         public AddInvoiceViewModel AddInvoiceViewModel { get; set; }
         public InvoiceDetailsViewModel InvoiceDetailsViewModel { get; set; }
         public PaymentDetailsViewModel PaymentDetailsViewModel { get; set; }
+        public BalanceStatementViewModel BalanceStatementViewModel { get; set; }
     }
 }
