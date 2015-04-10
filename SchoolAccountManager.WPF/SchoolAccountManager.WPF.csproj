@@ -110,6 +110,9 @@
     <Compile Include="View\PaymentsView.xaml.cs">
       <DependentUpon>PaymentsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PrintBalanceStatementView.xaml.cs">
+      <DependentUpon>PrintBalanceStatementView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PrintInvoiceView.xaml.cs">
       <DependentUpon>PrintInvoiceView.xaml</DependentUpon>
     </Compile>
@@ -161,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PaymentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PrintBalanceStatementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

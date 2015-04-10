@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using SchoolAccountManager.WPF.Infrastructure;
+using SchoolAccountManager.WPF.View;
 
 namespace SchoolAccountManager.WPF.ViewModel
 {
@@ -72,14 +74,22 @@ namespace SchoolAccountManager.WPF.ViewModel
 
         public RelayCommand CalculateProfitCommand { get; set; }
         public RelayCommand GoHomeCommand { get; set; }
+        public RelayCommand PrintCommand { get; set; }
 
         public BalanceStatementViewModel()
         {
             CalculateProfitCommand = new RelayCommand(CalculateProfit);
             GoHomeCommand = new RelayCommand(() => Navigator.SwitchView(ViewModelLocator.HomeViewModel));
-
+            PrintCommand = new RelayCommand(Print);
         }
-
+        private void Print()
+        {
+            var printDialog = new PrintDialog();
+            if (printDialog.ShowDialog() == true)
+            {
+                printDialog.PrintVisual(new PrintBalanceStatementView(), "Balance Statement");
+            }
+        }
         private void CalculateProfit()
         {
             TotalExpendature = Repository.Invoices.Where(e => e.DateTime > StartDate && e.DateTime < EndDate).Sum(e => e.Amount);
