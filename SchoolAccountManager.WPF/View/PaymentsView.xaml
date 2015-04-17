@@ -21,7 +21,7 @@
                         <TextBlock Grid.Row="1" Text="{Binding DateTime, StringFormat=\{0:d\}}"
                                    Margin="5"
                                    FontSize="12" />
-                        <TextBlock  Grid.Row="1" Text="{Binding Amount, StringFormat=\{0:c\}}"
+                        <TextBlock  Grid.Row="1" Text="{Binding Amount, StringFormat=\{0:C\}, ConverterCulture=ig-NG}"
                                    Margin="5"
                                    HorizontalAlignment="Right"
                                    FontSize="12" />

@@ -86,7 +86,7 @@
                     Grid.Column="0">
             <Label Style="{StaticResource LblLabelStyle}"
                    Content="Total Income" />
-            <TextBlock Text="{Binding TotalIncome, StringFormat=\{0:c\}}"
+            <TextBlock Text="{Binding TotalIncome, StringFormat=\{0:C\}, ConverterCulture=ig-NG}"
                        Style="{StaticResource TxtBlkStyle}" />
         </StackPanel>
         <StackPanel Grid.Column="2"
@@ -94,7 +94,7 @@
                     Grid.Row="2">
             <Label Style="{StaticResource LblLabelStyle}"
                    Content="Profit" />
-            <TextBlock Text="{Binding TotalProfit,StringFormat=\{0:c\}}"
+            <TextBlock Text="{Binding TotalProfit,StringFormat=\{0:C\}, ConverterCulture=ig-NG}"
                        Style="{StaticResource TxtBlkStyle}" />
         </StackPanel>
         <StackPanel Grid.Column="1"
@@ -102,7 +102,7 @@
                     Grid.Row="2">
             <Label Style="{StaticResource LblLabelStyle}"
                    Content="Total Expenditure" />
-            <TextBlock Text="{Binding TotalExpendature, StringFormat=\{0:c\}}"
+            <TextBlock Text="{Binding TotalExpendature, StringFormat=\{0:C\}, ConverterCulture=ig-NG}"
                        Style="{StaticResource TxtBlkStyle}" />
 
         </StackPanel>

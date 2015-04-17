@@ -115,7 +115,7 @@
             <TextBlock Style="{StaticResource TxtBlkStyle}"
                    Grid.Row="6"
                    Grid.Column="1"
-                   Text="{Binding Payment.Amount, StringFormat=\{0:C\}}" />
+                   Text="{Binding Payment.Amount, StringFormat=\{0:C\}, ConverterCulture=ig-NG}" />
             <Label Style="{StaticResource TxtBoxInputStyle}"
                    Grid.Row="2"
                    Grid.Column="1"

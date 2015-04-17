@@ -82,7 +82,7 @@
             <TextBlock  Style="{StaticResource TxtBlkStyle}"
                     Grid.Row="1"
                     Grid.Column="1"
-                    Text="{Binding Payment.Amount, StringFormat=\{0:C\}}"></TextBlock>
+                        Text="{Binding Payment.Amount, StringFormat=\{0:C\}, ConverterCulture=ig-NG}"></TextBlock>
             <TextBlock  Style="{StaticResource TxtBlkStyle}"
                     Grid.Row="2"
                     Grid.Column="1"

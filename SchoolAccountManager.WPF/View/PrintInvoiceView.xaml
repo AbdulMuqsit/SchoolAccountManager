@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              d:DesignHeight="300"
              d:DesignWidth="300"
-			 Width="760"
+             Width="760"
              Height="1050">
     <Border VerticalAlignment="Top" Margin="0,0,0,5" BorderBrush="LightGray"
             BorderThickness="1"  >
@@ -59,35 +59,35 @@
             </Grid.RowDefinitions>
 
             <Image Source="logo.png" Height="100" Width="100" Stretch="Fill"/>
-			<Label FontSize="26"  Grid.Column="1" FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Style="{StaticResource LblLabelStyle}"
-        		Content="God's Wisdom International School" />
+            <Label FontSize="26"  Grid.Column="1" FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Style="{StaticResource LblLabelStyle}"
+                Content="God's Wisdom International School" />
             <Label Style="{StaticResource LblLabelStyle}"
-        		Grid.Row="2"
-        		Grid.Column="0"
-        		Content="Item" />
-        	<Label Style="{StaticResource LblLabelStyle}"
-        		Grid.Row="3"
-        		Grid.Column="0"
-        		Content="Quantity" />
-        	<Label Style="{StaticResource LblLabelStyle}"
-        		Grid.Row="4"
-        		Grid.Column="0"
-        		Content="Date" />
-        	<Label Style="{StaticResource LblLabelStyle}"
-        		Grid.Row="5"
-        		Grid.Column="0"
-        		Content="Amount" />
-        	<Label Grid.ColumnSpan="2" Grid.Column="0" FontSize="22" FontWeight="Bold" Style="{StaticResource TxtBoxInputStyle}"
-        		Grid.Row="1"
-        		Content="{Binding Invoice.Name, FallbackValue=Hello Kitty}" Margin="5,5,0,0"/>
-        	<Label  Style="{StaticResource TxtBoxInputStyle}"
-        		Grid.Row="3"
-        		Grid.Column="1"
-        		Content="{Binding Invoice.Quantity}"/>
-        	<TextBlock Margin="5,5,5,0" FontSize="16" VerticalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"
-        		Grid.Row="2"
-        		Grid.Column="1"
-        		Text="{Binding Invoice.Item}"/>
+                Grid.Row="2"
+                Grid.Column="0"
+                Content="Item" />
+            <Label Style="{StaticResource LblLabelStyle}"
+                Grid.Row="3"
+                Grid.Column="0"
+                Content="Quantity" />
+            <Label Style="{StaticResource LblLabelStyle}"
+                Grid.Row="4"
+                Grid.Column="0"
+                Content="Date" />
+            <Label Style="{StaticResource LblLabelStyle}"
+                Grid.Row="5"
+                Grid.Column="0"
+                Content="Amount" />
+            <Label Grid.ColumnSpan="2" Grid.Column="0" FontSize="22" FontWeight="Bold" Style="{StaticResource TxtBoxInputStyle}"
+                Grid.Row="1"
+                Content="{Binding Invoice.Name, FallbackValue=Hello Kitty}" Margin="5,5,0,0"/>
+            <Label  Style="{StaticResource TxtBoxInputStyle}"
+                Grid.Row="3"
+                Grid.Column="1"
+                Content="{Binding Invoice.Quantity}"/>
+            <TextBlock Margin="5,5,5,0" FontSize="16" VerticalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"
+                Grid.Row="2"
+                Grid.Column="1"
+                Text="{Binding Invoice.Item}"/>
             <TextBlock Style="{StaticResource TxtBlkStyle}"
                        Grid.Row="4"
                        Grid.Column="1"
@@ -95,7 +95,7 @@
             <TextBlock  Style="{StaticResource TxtBlkStyle}"
                         Grid.Row="5"
                         Grid.Column="1"
-                        Text="{Binding Invoice.Amount, StringFormat=\{0:C\}}"></TextBlock>
+                        Text="{Binding Invoice.Amount, StringFormat=\{0:C\}, ConverterCulture=ig-NG}"></TextBlock>
         </Grid>
 
     </Border>
