@@ -7,136 +7,277 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             d:DesignHeight="300"
-             d:DesignWidth="300"
-             MaxHeight="270"
-             MaxWidth="270">
-    <Border BorderBrush="LightGray"
-            BorderThickness="1"
-            VerticalAlignment="Top">
-        <Grid       d:DataContext="{d:DesignData /SampleData/PaymentDetailsViewModelSampleData.xaml}"
+             d:DesignHeight="760"
+             d:DesignWidth="1050"
+             Height="1050"
+             Width="760">
+
+    <Grid Margin="50">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Border BorderBrush="LightGray"
+                BorderThickness="1"
+                VerticalAlignment="Top" Padding="5">
+            <Grid
+                    d:DataContext="{d:DesignData /SampleData/PaymentDetailsViewModelSampleData.xaml}"
                     DataContext="{Binding Source={StaticResource Locator},Path=PaymentDetailsViewModel}">
-            <Grid.Resources>
-                <Style TargetType="Label"
-                       x:Key="LblLabelStyle">
-                    <Setter Property="Margin"
-                            Value="1,1,1,0" />
-                    <Setter Property="FontSize"
-                            Value="10" />
-                    <Setter Property="FontWeight"
-                            Value="Bold" />
-                </Style>
-                <Style TargetType="Label"
-                       x:Key="TxtBoxInputStyle">
-                    <Setter Property="Margin"
-                            Value="1,1,1,0" />
-                    <Setter Property="FontSize"
-                            Value="10" />
+                <Grid.Resources>
+                    <Style TargetType="Label"
+                           x:Key="LblLabelStyle">
+                        <Setter Property="Margin"
+                                Value="1,1,1,0" />
+                        <Setter Property="FontSize"
+                                Value="16" />
+                        <Setter Property="FontWeight"
+                                Value="Bold" />
+                    </Style>
+                    <Style TargetType="Label"
+                           x:Key="TxtBoxInputStyle">
+                        <Setter Property="Margin"
+                                Value="1,1,1,0" />
+                        <Setter Property="FontSize"
+                                Value="16" />
 
-                </Style>
-                <Style TargetType="TextBlock"
-                       x:Key="TxtBlkStyle">
-                    <Setter Property="Margin"
-                            Value="5,1,1,0"></Setter>
-                    <Setter Property="FontSize"
-                            Value="10" />
-                    <Setter Property="VerticalAlignment"
-                            Value="Center"></Setter>
+                    </Style>
+                    <Style TargetType="TextBlock"
+                           x:Key="TxtBlkStyle">
+                        <Setter Property="Margin"
+                                Value="5,1,1,0"></Setter>
+                        <Setter Property="FontSize"
+                                Value="16" />
+                        <Setter Property="VerticalAlignment"
+                                Value="Center"></Setter>
 
-                </Style>
-            </Grid.Resources>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"
+                                      MinWidth="266" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
 
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Label FontSize="13"
-                   Grid.ColumnSpan="2"
-                   Grid.Column="0"
-                   FontWeight="Bold"
-                   Style="{StaticResource TxtBoxInputStyle}"
-                   Grid.Row="1"
-                   Content="{Binding Payment.StudentName}"
-                   Margin="0,5,0,0" />
-            <Label Style="{StaticResource LblLabelStyle}"
-                   Grid.Row="6"
-                   Grid.Column="0"
-                   Content="Amount" />
-            <Label Style="{StaticResource LblLabelStyle}"
-                   Grid.Row="2"
-                   Grid.Column="0"
-                   Content="Bank Name" />
-            <Label Style="{StaticResource LblLabelStyle}"
-                   Grid.Row="3"
-                   Grid.Column="0"
-                   Content="Date" />
-            <Label Style="{StaticResource LblLabelStyle}"
-                   Grid.Row="4"
-                   Grid.Column="0"
-                   Content="Description" />
-            <Label Style="{StaticResource LblLabelStyle}"
-                   Grid.Row="5"
-                   Grid.Column="0"
-                   Content="Class" />
-            <Image Grid.Row="0"
-                   Grid.Column="0"
-                   Margin="5,5,22.497,0"
-                   Source="logo.png"
-                   Height="50"
-                   Width="50"
-                   Stretch="Fill" />
-            <Label FontSize="12"
-                   Grid.Column="1"
-                   FontWeight="Black"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Grid.Row="0"
-                   Style="{StaticResource LblLabelStyle}"
-                   Content="God's Wisdom International"
-                   Margin="-22,-20,5,-1" />
-            <Label FontSize="12"
-                   Grid.Column="1"
-                   FontWeight="Black"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Grid.Row="0"
-                   Style="{StaticResource LblLabelStyle}"
-                   Content="School"
-                   Margin="-22,24,5,0" />
-            <TextBlock Style="{StaticResource TxtBlkStyle}"
-                   Grid.Row="6"
-                   Grid.Column="1"
-                   Text="{Binding Payment.Amount, StringFormat=\{0:C\}, ConverterCulture=ig-NG}" />
-            <Label Style="{StaticResource TxtBoxInputStyle}"
-                   Grid.Row="2"
-                   Grid.Column="1"
-                   Content="{Binding Payment.BankName}" />
-            <TextBlock Style="{StaticResource TxtBlkStyle}"
-                   Grid.Row="3"
-                   Grid.Column="1"
-                   Text="{Binding Payment.DateTime, StringFormat=\{0:D\}}" />
-            <TextBlock TextWrapping="WrapWithOverflow"
-                       FontSize="10"
-                       VerticalAlignment="Center"
-                       Margin="5,1"
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label FontSize="21.333"
+                       Grid.ColumnSpan="2"
+                       Grid.Column="0"
+                       FontWeight="Bold"
+                       Style="{StaticResource TxtBoxInputStyle}"
+                       Grid.Row="1"
+                       Content="{Binding Payment.StudentName}"
+                       Margin="0,5,0,0" />
+                <Label Style="{StaticResource LblLabelStyle}"
+                       Grid.Row="6"
+                       Grid.Column="0"
+                       Content="Amount" />
+                <Label Style="{StaticResource LblLabelStyle}"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Content="Bank Name" />
+                <Label Style="{StaticResource LblLabelStyle}"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Content="Date" />
+                <Label Style="{StaticResource LblLabelStyle}"
                        Grid.Row="4"
+                       Grid.Column="0"
+                       Content="Description" />
+                <Label Style="{StaticResource LblLabelStyle}"
+                       Grid.Row="5"
+                       Grid.Column="0"
+                       Content="Class" />
+                <Image Grid.Row="0"
+                       Width="70"
+                       Height="70"
+                       Grid.Column="0"
+                       Source="logo.png"
+                       Stretch="Fill"
+                       HorizontalAlignment="Left" />
+                <Label FontSize="24"
+                       FontWeight="Black"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Grid.Row="0"
+                       Style="{StaticResource LblLabelStyle}"
+                       Content="God's Wisdom International" Grid.ColumnSpan="2" />
+                <Label FontSize="24"
+                       FontWeight="Black"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Grid.Row="0"
+                       Style="{StaticResource LblLabelStyle}"
+                       Content="School"
+                       Margin="1,60,1,0" Grid.ColumnSpan="2" />
+                <TextBlock Style="{StaticResource TxtBlkStyle}"
+                           Grid.Row="6"
+                           Grid.Column="1"
+                           Text="{Binding Payment.Amount, StringFormat=\{0:C\}, ConverterCulture=ig-NG}"
+                           Height="21.28"
+                           Margin="5,6,1,5" />
+                <Label Style="{StaticResource TxtBoxInputStyle}"
+                       Grid.Row="2"
                        Grid.Column="1"
-                       Text="{Binding Payment.Description}" />
-            <Label Style="{StaticResource TxtBoxInputStyle}"
-                   Grid.Row="5"
-                   Grid.Column="1"
-                   Content="{Binding Payment.Class}" />
-        </Grid>
+                       Content="{Binding Payment.BankName}" />
+                <TextBlock Style="{StaticResource TxtBlkStyle}"
+                           Grid.Row="3"
+                           Grid.Column="1"
+                           Text="{Binding Payment.DateTime, StringFormat=\{0:D\}}"
+                           Height="21.28"
+                           Margin="5,6,1,5" />
+                <TextBlock TextWrapping="WrapWithOverflow"
+                           Style="{StaticResource TxtBlkStyle}"
+                           VerticalAlignment="Center"
+                           Margin="5,5.5"
+                           Grid.Row="4"
+                           Grid.Column="1"
+                           Text="{Binding Payment.Description}"
+                           Height="21.28" />
+                <Label Style="{StaticResource TxtBoxInputStyle}"
+                       Grid.Row="5"
+                       Grid.Column="1"
+                       Content="{Binding Payment.Class}" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="1"
+                BorderBrush="LightGray"
+                BorderThickness="1"
+                VerticalAlignment="Top" Margin="0,30,0,0" Padding="5">
+            <Grid
+                    d:DataContext="{d:DesignData /SampleData/PaymentDetailsViewModelSampleData.xaml}"
+                    DataContext="{Binding Source={StaticResource Locator},Path=PaymentDetailsViewModel}">
+                <Grid.Resources>
+                    <Style TargetType="Label"
+                           x:Key="LblLabelStyle">
+                        <Setter Property="Margin"
+                                Value="1,1,1,0" />
+                        <Setter Property="FontSize"
+                                Value="16" />
+                        <Setter Property="FontWeight"
+                                Value="Bold" />
+                    </Style>
+                    <Style TargetType="Label"
+                           x:Key="TxtBoxInputStyle">
+                        <Setter Property="Margin"
+                                Value="1,1,1,0" />
+                        <Setter Property="FontSize"
+                                Value="16" />
 
-    </Border>
+                    </Style>
+                    <Style TargetType="TextBlock"
+                           x:Key="TxtBlkStyle">
+                        <Setter Property="Margin"
+                                Value="5,1,1,0"></Setter>
+                        <Setter Property="FontSize"
+                                Value="16" />
+                        <Setter Property="VerticalAlignment"
+                                Value="Center"></Setter>
+
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"
+                                      MinWidth="266" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label FontSize="21.333"
+                       Grid.ColumnSpan="2"
+                       Grid.Column="0"
+                       FontWeight="Bold"
+                       Style="{StaticResource TxtBoxInputStyle}"
+                       Grid.Row="1"
+                       Content="{Binding Payment.StudentName}"
+                       Margin="0,5,0,0" />
+                <Label Style="{StaticResource LblLabelStyle}"
+                       Grid.Row="6"
+                       Grid.Column="0"
+                       Content="Amount" />
+                <Label Style="{StaticResource LblLabelStyle}"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Content="Bank Name" />
+                <Label Style="{StaticResource LblLabelStyle}"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Content="Date" />
+                <Label Style="{StaticResource LblLabelStyle}"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       Content="Description" />
+                <Label Style="{StaticResource LblLabelStyle}"
+                       Grid.Row="5"
+                       Grid.Column="0"
+                       Content="Class" />
+                <Image Grid.Row="0"
+                       Width="70"
+                       Height="70"
+                       Grid.Column="0"
+                       Source="logo.png"
+                       Stretch="Fill"
+                       HorizontalAlignment="Left" />
+                <Label FontSize="24"
+                       FontWeight="Black"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Grid.Row="0"
+                       Style="{StaticResource LblLabelStyle}"
+                       Content="God's Wisdom International" Grid.ColumnSpan="2" />
+                <Label FontSize="24"
+                       FontWeight="Black"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Grid.Row="0"
+                       Style="{StaticResource LblLabelStyle}"
+                       Content="School"
+                       Margin="1,60,1,0" Grid.ColumnSpan="2" />
+                <TextBlock Style="{StaticResource TxtBlkStyle}"
+                           Grid.Row="6"
+                           Grid.Column="1"
+                           Text="{Binding Payment.Amount, StringFormat=\{0:C\}, ConverterCulture=ig-NG}"
+                           Height="21.28"
+                           Margin="5,6,1,5" />
+                <Label Style="{StaticResource TxtBoxInputStyle}"
+                       Grid.Row="2"
+                       Grid.Column="1"
+                       Content="{Binding Payment.BankName}" />
+                <TextBlock Style="{StaticResource TxtBlkStyle}"
+                           Grid.Row="3"
+                           Grid.Column="1"
+                           Text="{Binding Payment.DateTime, StringFormat=\{0:D\}}"
+                           Height="21.28"
+                           Margin="5,6,1,5" />
+                <TextBlock TextWrapping="WrapWithOverflow"
+                           Style="{StaticResource TxtBlkStyle}"
+                           VerticalAlignment="Center"
+                           Margin="5,5.5"
+                           Grid.Row="4"
+                           Grid.Column="1"
+                           Text="{Binding Payment.Description}"
+                           Height="21.28" />
+                <Label Style="{StaticResource TxtBoxInputStyle}"
+                       Grid.Row="5"
+                       Grid.Column="1"
+                       Content="{Binding Payment.Class}" />
+            </Grid>
+        </Border>
+    </Grid>
 
 </UserControl>

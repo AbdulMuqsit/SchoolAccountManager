@@ -26,7 +26,7 @@ namespace SchoolAccountManager.WPF.ViewModel
         public RelayCommand GoHomeCommand { get; set; }
         public AddPaymentViewModel()
         {
-            Payment = new Payment();
+            Payment = new Payment ();
             SaveCommand = new RelayCommand(() =>
             {
                 Repository.Payments.Add(Payment);

@@ -26,7 +26,7 @@ namespace SchoolAccountManager.WPF.ViewModel
         public RelayCommand GoHomeCommand { get; set; }
         public AddInvoiceViewModel()
         {
-            Invoice = new Invoice();
+            Invoice = new Invoice ();
             SaveCommand = new RelayCommand(() =>
             {
                 Repository.Invoices.Add(Invoice);

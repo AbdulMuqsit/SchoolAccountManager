@@ -12,10 +12,6 @@ namespace SchoolAccountManager.WPF
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-
-            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("ig-NG");
-            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("ig-NG");
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("ig-NG");
             base.OnStartup(e);
         }
     }

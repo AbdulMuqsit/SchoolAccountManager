@@ -77,7 +77,7 @@
             <DatePicker Style="{StaticResource DatPkrStyle}"
                         Grid.Row="3"
                         Grid.Column="1"
-                        Text="{Binding Invoice.DateTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></DatePicker>
+                        Text="{Binding Invoice.DateTime, Mode=TwoWay}"></DatePicker>
             <TextBox  Style="{StaticResource TxtBoxInputStyle}"
                       Grid.Row="4"
                       Grid.Column="1"

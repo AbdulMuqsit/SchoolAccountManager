@@ -206,7 +206,7 @@
             {
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
-            "PrerequisitesLocation" = "2:2"
+            "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
                 "Items"
@@ -569,15 +569,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Accont Manager "
-        "ProductCode" = "8:{B03ABC75-1161-451D-90B4-C1CB5B8913E2}"
-        "PackageCode" = "8:{EABD4C0F-7D95-4062-AE25-A76AC8A14CF2}"
+        "ProductCode" = "8:{7B7BF8F2-9444-4340-B413-5532F7D7D7F4}"
+        "PackageCode" = "8:{A9507DE2-A28E-4124-A4B9-ADF4B58AEB67}"
         "UpgradeCode" = "8:{F31701A5-CBDD-40C7-9AC6-33E8C9550DD3}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.6"
+        "ProductVersion" = "8:1.0.9"
         "Manufacturer" = "8:Ainigma Dev"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://fiverr.com/Amuqsit"
@@ -1119,7 +1119,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_EF6A98A25BED42FEA0343A4D3964907F"
             {
-            "SourcePath" = "8:..\\SchoolAccountManager.WPF\\obj\\Release\\SchoolAccountManager.WPF.exe"
+            "SourcePath" = "8:..\\SchoolAccountManager.WPF\\obj\\Release\\SAM.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0B1D1106311140469DC890E2A61DEDF7"
