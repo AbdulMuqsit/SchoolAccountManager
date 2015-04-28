@@ -100,7 +100,7 @@
                     Grid.Column="0"
                     MinWidth="70"
                     MinHeight="30"
-                    Command="{Binding Source={StaticResource Locator}, Path=InvoiceDetailsViewModel.PrintCommand}">Print</Button>
+                    Command="{Binding Source={StaticResource Locator}, Path=InvoiceDetailsViewModel.PrintCommand}">Print Preview</Button>
         </Grid>
 
     </Border>

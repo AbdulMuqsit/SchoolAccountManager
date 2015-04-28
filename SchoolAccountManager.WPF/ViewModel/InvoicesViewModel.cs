@@ -78,7 +78,16 @@ namespace SchoolAccountManager.WPF.ViewModel
 
         private void Search()
         {
-            Invoices = string.IsNullOrWhiteSpace(SearchText) ? new ObservableCollection<Invoice>(Repository.Invoices.GetAll()) : new ObservableCollection<Invoice>(Repository.Context.Invoices.Local.Where(e => e.Name.ToLower().Contains(SearchText.ToLower())));
+            Invoices = string.IsNullOrWhiteSpace(SearchText) ?
+                new ObservableCollection<Invoice>(Repository.Invoices.GetAll())
+                : new ObservableCollection<Invoice>(Repository.Context.Invoices.Local.Where(e =>
+                {
+                    if (e.Name != null)
+                    {
+                        return e.Name.ToLower().Contains(SearchText.ToLower());
+                    }
+                    return false;
+                }));
         }
     }
 }

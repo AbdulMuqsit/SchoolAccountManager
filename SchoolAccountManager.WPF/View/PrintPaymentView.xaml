@@ -6,23 +6,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d"
-             d:DesignHeight="760"
-             d:DesignWidth="1050"
-             Height="1050"
-             Width="760">
+             mc:Ignorable="d">
 
-    <Grid Margin="50">
+    <Grid Margin="30"
+          x:Name="Grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Border BorderBrush="LightGray"
-                BorderThickness="1"
-                VerticalAlignment="Top" Padding="5">
-            <Grid
-                    d:DataContext="{d:DesignData /SampleData/PaymentDetailsViewModelSampleData.xaml}"
-                    DataContext="{Binding Source={StaticResource Locator},Path=PaymentDetailsViewModel}">
+                BorderThickness="3"
+                VerticalAlignment="Top"
+                Padding="5">
+            <Grid d:DataContext="{d:DesignData /SampleData/PaymentDetailsViewModelSampleData.xaml}"
+                  DataContext="{Binding Source={StaticResource Locator},Path=PaymentDetailsViewModel}">
                 <Grid.Resources>
                     <Style TargetType="Label"
                            x:Key="LblLabelStyle">
@@ -67,10 +64,10 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Label FontSize="21.333"
-                       Grid.ColumnSpan="2"
-                       Grid.Column="0"
-                       FontWeight="Bold"
+                <Label
+
+                       Grid.Column="1"
+
                        Style="{StaticResource TxtBoxInputStyle}"
                        Grid.Row="1"
                        Content="{Binding Payment.StudentName}"
@@ -79,6 +76,10 @@
                        Grid.Row="6"
                        Grid.Column="0"
                        Content="Amount" />
+					   <Label Style="{StaticResource LblLabelStyle}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Content="Name" />
                 <Label Style="{StaticResource LblLabelStyle}"
                        Grid.Row="2"
                        Grid.Column="0"
@@ -108,7 +109,8 @@
                        VerticalAlignment="Center"
                        Grid.Row="0"
                        Style="{StaticResource LblLabelStyle}"
-                       Content="God's Wisdom International" Grid.ColumnSpan="2" />
+                       Content="God's Wisdom International"
+                       Grid.ColumnSpan="2" />
                 <Label FontSize="24"
                        FontWeight="Black"
                        HorizontalAlignment="Center"
@@ -116,7 +118,8 @@
                        Grid.Row="0"
                        Style="{StaticResource LblLabelStyle}"
                        Content="School"
-                       Margin="1,60,1,0" Grid.ColumnSpan="2" />
+                       Margin="1,60,1,0"
+                       Grid.ColumnSpan="2" />
                 <TextBlock Style="{StaticResource TxtBlkStyle}"
                            Grid.Row="6"
                            Grid.Column="1"
@@ -145,15 +148,98 @@
                        Grid.Row="5"
                        Grid.Column="1"
                        Content="{Binding Payment.Class}" />
+                <Path Grid.Column="1"
+                      Data="M89.813333,70 L89.813333,258.05"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="212.28"
+                      Grid.Row="1"
+                      Grid.RowSpan="6"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top"
+                      Width="1" StrokeThickness="3" />
+                <Path Grid.ColumnSpan="2"
+                      Grid.Column="0"
+                      Data="M0,70 L745.99,75"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="1"
+                      Grid.Row="2"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top" StrokeThickness="3" />
+                <Path Grid.ColumnSpan="2"
+                      Grid.Column="0"
+                      Data="M0,70 L745.99,75"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="1"
+                      Grid.Row="1"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top" StrokeThickness="3" />
+                <Path Grid.ColumnSpan="2"
+                      Grid.Column="0"
+                      Data="M0,70 L745.99,75"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="1"
+                      Grid.Row="1"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top"
+                      Grid.RowSpan="2" StrokeThickness="3" />
+                <Path Grid.ColumnSpan="2"
+                      Grid.Column="0"
+                      Data="M0,70 L745.99,75"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="1"
+                      Grid.Row="3"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top" StrokeThickness="3" />
+                <Path Grid.ColumnSpan="2"
+                      Grid.Column="0"
+                      Data="M0,70 L745.99,75"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="1"
+                      Grid.Row="4"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top" StrokeThickness="3" />
+                <Path Grid.ColumnSpan="2"
+                      Grid.Column="0"
+                      Data="M0,70 L745.99,75"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="1"
+                      Grid.Row="5"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top" StrokeThickness="3" />
+                <Path Grid.ColumnSpan="2"
+                      Grid.Column="0"
+                      Data="M0,70 L745.99,75"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="1"
+                      Grid.Row="6"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top" StrokeThickness="3" />
             </Grid>
         </Border>
         <Border Grid.Row="1"
                 BorderBrush="LightGray"
-                BorderThickness="1"
-                VerticalAlignment="Top" Margin="0,30,0,0" Padding="5">
-            <Grid
-                    d:DataContext="{d:DesignData /SampleData/PaymentDetailsViewModelSampleData.xaml}"
-                    DataContext="{Binding Source={StaticResource Locator},Path=PaymentDetailsViewModel}">
+                BorderThickness="3"
+                VerticalAlignment="Top"
+                Margin="0,30,0,0"
+                Padding="5">
+            <Grid d:DataContext="{d:DesignData /SampleData/PaymentDetailsViewModelSampleData.xaml}"
+                  DataContext="{Binding Source={StaticResource Locator},Path=PaymentDetailsViewModel}">
                 <Grid.Resources>
                     <Style TargetType="Label"
                            x:Key="LblLabelStyle">
@@ -198,10 +284,10 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Label FontSize="21.333"
-                       Grid.ColumnSpan="2"
-                       Grid.Column="0"
-                       FontWeight="Bold"
+                <Label
+
+                       Grid.Column="1"
+
                        Style="{StaticResource TxtBoxInputStyle}"
                        Grid.Row="1"
                        Content="{Binding Payment.StudentName}"
@@ -210,6 +296,10 @@
                        Grid.Row="6"
                        Grid.Column="0"
                        Content="Amount" />
+					    <Label Style="{StaticResource LblLabelStyle}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Content="Name" />
                 <Label Style="{StaticResource LblLabelStyle}"
                        Grid.Row="2"
                        Grid.Column="0"
@@ -239,7 +329,8 @@
                        VerticalAlignment="Center"
                        Grid.Row="0"
                        Style="{StaticResource LblLabelStyle}"
-                       Content="God's Wisdom International" Grid.ColumnSpan="2" />
+                       Content="God's Wisdom International"
+                       Grid.ColumnSpan="2" />
                 <Label FontSize="24"
                        FontWeight="Black"
                        HorizontalAlignment="Center"
@@ -247,7 +338,8 @@
                        Grid.Row="0"
                        Style="{StaticResource LblLabelStyle}"
                        Content="School"
-                       Margin="1,60,1,0" Grid.ColumnSpan="2" />
+                       Margin="1,60,1,0"
+                       Grid.ColumnSpan="2" />
                 <TextBlock Style="{StaticResource TxtBlkStyle}"
                            Grid.Row="6"
                            Grid.Column="1"
@@ -276,6 +368,88 @@
                        Grid.Row="5"
                        Grid.Column="1"
                        Content="{Binding Payment.Class}" />
+                <Path Grid.Column="1"
+                      Data="M89.813333,70 L89.813333,258.05"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="212.28"
+                      Grid.Row="1"
+                      Grid.RowSpan="6"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top"
+                      Width="1" />
+                <Path Grid.ColumnSpan="2"
+                      Grid.Column="0"
+                      Data="M0,70 L745.99,75"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="1"
+                      Grid.Row="2"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top" />
+                <Path Grid.ColumnSpan="2"
+                      Grid.Column="0"
+                      Data="M0,70 L745.99,75"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="1"
+                      Grid.Row="1"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top" />
+                <Path Grid.ColumnSpan="2"
+                      Grid.Column="0"
+                      Data="M0,70 L745.99,75"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="1"
+                      Grid.Row="1"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top"
+
+                      Grid.RowSpan="2" />
+                <Path Grid.ColumnSpan="2"
+                      Grid.Column="0"
+                      Data="M0,70 L745.99,75"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="1"
+                      Grid.Row="3"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top" />
+                <Path Grid.ColumnSpan="2"
+                      Grid.Column="0"
+                      Data="M0,70 L745.99,75"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="1"
+                      Grid.Row="4"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top" />
+                <Path Grid.ColumnSpan="2" Grid.Column="0"
+                      Data="M0,70 L745.99,75"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="1"
+                      Grid.Row="5"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top" />
+                <Path Grid.ColumnSpan="2" Grid.Column="0"
+                      Data="M0,70 L745.99,75"
+                      Fill="#FFF4F4F5"
+                      HorizontalAlignment="Left"
+                      Height="1"
+                      Grid.Row="6"
+                      Stretch="Fill"
+                      Stroke="Gray"
+                      VerticalAlignment="Top" />
+
             </Grid>
         </Border>
     </Grid>
