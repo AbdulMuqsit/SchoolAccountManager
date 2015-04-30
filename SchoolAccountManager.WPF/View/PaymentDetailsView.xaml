@@ -106,7 +106,7 @@
                     Margin="5"
                     MinWidth="70"
                     MinHeight="30"
-                    Command="{Binding Source={StaticResource Locator}, Path=PaymentDetailsViewModel.PrintCommand}">Print Preview</Button>
+                    Command="{Binding Source={StaticResource Locator}, Path=PaymentDetailsViewModel.PrintCommand}">Print</Button>
 
         </Grid>
 

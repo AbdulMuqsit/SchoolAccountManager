@@ -1,5 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Drawing;
+using System.Drawing.Printing;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using SchoolAccountManager.Entities;
 using SchoolAccountManager.WPF.Infrastructure;
 using SchoolAccountManager.WPF.View;
@@ -28,61 +32,93 @@ namespace SchoolAccountManager.WPF.ViewModel
         }
 
         public RelayCommand PrintCommand { get; set; }
-
-        private void Print()
+        public void Print()
         {
-            var grid = new Grid();
-            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength() });
-            var column = new ColumnDefinition { Width = new GridLength() };
-            grid.ColumnDefinitions.Add(column);
-            var btn = new Button
+
+            var printDialog = new System.Windows.Forms.PrintDialog();
+            var doc = new PrintDocument();
+            printDialog.Document = doc;
+            doc.PrintPage += new PrintPageEventHandler(ProvideContent);
+            if (printDialog.ShowDialog() == DialogResult.OK)
             {
-                Content = "Print",
-                Width = 70,
-                Height = 30,
-                Margin = new Thickness(50),
-                HorizontalAlignment = HorizontalAlignment.Left
-                ,
-                VerticalAlignment = VerticalAlignment.Top
-            };
+                doc.Print();
+            }
 
-            Grid.SetColumn(btn, 1);
-            var print = new PrintPaymentView
-            {
+        }
 
-                Height = 1000,
-                HorizontalAlignment = HorizontalAlignment.Left,
-                VerticalAlignment = VerticalAlignment.Top,
-                Grid =
-                {
-                    VerticalAlignment = VerticalAlignment.Top,
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    Width = 730,
-                    Height = 1000,
-                }
-            };
-            Grid.SetColumn(print, 0);
-            grid.Children.Add(print);
-            grid.Children.Add(btn);
-            btn.Click += ((s, e) =>
-            {
-                var printDialog = new PrintDialog();
-                if (printDialog.ShowDialog() == true)
-                {
 
-                    printDialog.PrintVisual(print.Grid, "Receipt");
-                }
-            });
-            var window = new Window { Content = grid, SizeToContent = SizeToContent.WidthAndHeight };
+        public void ProvideContent(object sender, PrintPageEventArgs e)
+        {
 
-            window.ShowDialog();
-            //var printDialog = new PrintDialog();
-            //if (printDialog.ShowDialog() == true)
-            //{
-            //    var print = new PrintPaymentView();
-            //    print.UpdateLayout();
-            //    printDialog.PrintVisual(print, "Receipt");
-            //}
+            Graphics graphics = e.Graphics;
+
+
+            const String titleLineOne = "God's Wisdom Internationl";
+            const string titleLineTwo = "School";
+
+            const string underLine = "--------------------------------------------";
+            int startX = 4;
+            const int startY = 4;
+            int offset = 20;
+            var bitmap = new Bitmap("logo.png");
+            graphics.DrawImage(bitmap, new Rectangle(4, 12, 50, 50));
+            graphics.DrawString(titleLineOne, new Font("Courier New", 11),
+                new SolidBrush(Color.Black), startX + 55, startY + offset);
+            offset += 20;
+            graphics.DrawString(titleLineTwo, new Font("Courier New", 11),
+                new SolidBrush(Color.Black), startX + 140, startY + offset);
+            offset += 35;
+            graphics.DrawString("Issue Date : " + DateTime.Now.ToShortDateString(), new Font("Courier New", 7),
+                new SolidBrush(Color.Black), startX, startY + offset);
+            offset += 10;
+
+            graphics.DrawString(underLine, new Font("Courier New", 8),
+                new SolidBrush(Color.Black), startX, startY + offset);
+            offset += 10;
+            graphics.DrawString("Name            -", new Font("Courier New", 8),
+                new SolidBrush(Color.Black), startX, startY + offset);
+            offset += 20;
+            graphics.DrawString("Date            -", new Font("Courier New", 8),
+                new SolidBrush(Color.Black), startX, startY + offset);
+            offset += 20;
+            graphics.DrawString("Description     -", new Font("Courier New", 8),
+                new SolidBrush(Color.Black), startX, startY + offset);
+            offset += 20;
+            graphics.DrawString("Class           -", new Font("Courier New", 8),
+                new SolidBrush(Color.Black), startX, startY + offset);
+            offset += 20;
+            graphics.DrawString("Bank            -", new Font("Courier New", 8),
+                new SolidBrush(Color.Black), startX, startY + offset);
+            offset += 20;
+            graphics.DrawString("Amount          -", new Font("Courier New", 8),
+                new SolidBrush(Color.Black), startX, startY + offset);
+            offset += 10;
+            graphics.DrawString(underLine, new Font("Courier New", 8),
+                new SolidBrush(Color.Black), startX, startY + offset);
+
+            startX = 150;
+            offset = 95;
+
+            graphics.DrawString(Payment.StudentName, new Font("Courier New", 8),
+                new SolidBrush(Color.Black), startX, startY + offset);
+            offset += 20;
+            if (Payment.DateTime != null)
+                graphics.DrawString(Payment.DateTime.Value.ToShortDateString(), new Font("Courier New", 8),
+                    new SolidBrush(Color.Black), startX, startY + offset);
+            offset += 20;
+            graphics.DrawString(Payment.Description, new Font("Courier New", 8),
+                new SolidBrush(Color.Black), startX, startY + offset);
+            offset += 20;
+            graphics.DrawString(Payment.Class, new Font("Courier New", 8),
+                new SolidBrush(Color.Black), startX, startY + offset);
+            offset += 20;
+            graphics.DrawString(Payment.BankName, new Font("Courier New", 8),
+                new SolidBrush(Color.Black), startX, startY + offset);
+            offset += 20;
+            if (Payment.Amount != null)
+                graphics.DrawString(String.Format(new System.Globalization.CultureInfo("ig-NG"), "{0:C}", Payment.Amount.Value), new Font("Courier New", 8),
+                    new SolidBrush(Color.Black), startX, startY + offset);
+
         }
     }
 }
