@@ -60,13 +60,12 @@ namespace SchoolAccountManager.WPF.ViewModel
             int startX = 4;
             const int startY = 4;
             int offset = 20;
-            var bitmap = new Bitmap("logo.png");
-            graphics.DrawImage(bitmap, new Rectangle(4, 12, 50, 50));
-            graphics.DrawString(titleLineOne, new Font("Courier New", 11),
-                new SolidBrush(Color.Black), startX + 55, startY + offset);
+
+            graphics.DrawString(titleLineOne, new Font("Courier New", 12),
+                new SolidBrush(Color.Black), startX + 20, startY + offset);
             offset += 20;
-            graphics.DrawString(titleLineTwo, new Font("Courier New", 11),
-                new SolidBrush(Color.Black), startX + 140, startY + offset);
+            graphics.DrawString(titleLineTwo, new Font("Courier New", 12),
+                new SolidBrush(Color.Black), startX + 120, startY + offset);
             offset += 35;
             graphics.DrawString("Issue Date : " + DateTime.Now.ToShortDateString(), new Font("Courier New", 7),
                 new SolidBrush(Color.Black), startX, startY + offset);

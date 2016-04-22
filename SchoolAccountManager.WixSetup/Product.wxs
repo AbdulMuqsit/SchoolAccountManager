@@ -1,0 +1,27 @@
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="SchoolAccountManager.WixSetup" Language="1033" Version="1.0.0.0" Manufacturer="" UpgradeCode="594d00e3-e4ae-495f-8246-8428cbc78a5e">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="SchoolAccountManager.WixSetup" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="SchoolAccountManager.WixSetup" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+
+		<Component Id="EntityFramework.dll" Guid="4f85ed00-c598-4e11-9807-4c581ab40429"><File Id="EntityFramework.dll" Name="EntityFramework.dll" Source="$(var.SchoolAccountManager.WPF_BIN)EntityFramework.dll" /></Component><Component Id="EntityFramework.SqlServer.dll" Guid="4e900356-c1be-43ee-b7eb-c70c0c974c30"><File Id="EntityFramework.SqlServer.dll" Name="EntityFramework.SqlServer.dll" Source="$(var.SchoolAccountManager.WPF_BIN)EntityFramework.SqlServer.dll" /></Component><Component Id="EntityFramework.SqlServerCompact.dll" Guid="eb89bc87-253a-4e75-b06b-db6fd89ddc10"><File Id="EntityFramework.SqlServerCompact.dll" Name="EntityFramework.SqlServerCompact.dll" Source="$(var.SchoolAccountManager.WPF_BIN)EntityFramework.SqlServerCompact.dll" /></Component><Component Id="System.Data.SqlServerCe.dll" Guid="4a18f9f5-2a8a-4c72-8c97-e725e32c5951"><File Id="System.Data.SqlServerCe.dll" Name="System.Data.SqlServerCe.dll" Source="$(var.SchoolAccountManager.WPF_BIN)System.Data.SqlServerCe.dll" /></Component><Component Id="SchoolAccountManager.EF.dll" Guid="46551a6b-4360-4e50-935c-295a5c87802a"><File Id="SchoolAccountManager.EF.dll" Name="SchoolAccountManager.EF.dll" Source="$(var.SchoolAccountManager.WPF_BIN)SchoolAccountManager.EF.dll" /></Component><Component Id="SchoolAccountManager.Entities.dll" Guid="e6cb3fa2-7ca3-499c-9954-6d3cc770985a"><File Id="SchoolAccountManager.Entities.dll" Name="SchoolAccountManager.Entities.dll" Source="$(var.SchoolAccountManager.WPF_BIN)SchoolAccountManager.Entities.dll" /></Component><Component Id="SchoolAccountManager.WPF.exe" Guid="cff03559-54e4-42dd-9bb3-a23ab54e669c"><File Id="SchoolAccountManager.WPF.exe" Name="SchoolAccountManager.WPF.exe" Source="$(var.SchoolAccountManager.WPF_BIN)SchoolAccountManager.WPF.exe" /></Component><Component Id="SchoolAccountManager.WPF.exe.config" Guid="d63d084f-d968-466f-9dc8-397630e44e58"><File Id="SchoolAccountManager.WPF.exe.config" Name="SchoolAccountManager.WPF.exe.config" Source="$(var.SchoolAccountManager.WPF_BIN)SchoolAccountManager.WPF.exe.config" /></Component></ComponentGroup>
+	</Fragment>
+</Wix>
